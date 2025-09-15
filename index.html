@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,31 @@
     <link rel="shortcut icon" href="icons/iconAphelion.png" type="image/x-icon">
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
             <img src="icons/iconAphelion.png">
             <h1>Aphelion</h1>
         </div>
-            <img class="theme" src="icons/iconTheme.png">
+        <img class="theme" src="icons/iconTheme.png">
     </header>
     <main>
         <div class="description-site">
-            <p>Aphelion é uma rede social que conecta pessoas com interesses em comum, facilitando interações e descobertas entre uma comunidade.</p>
+            <p>Aphelion é uma rede social que conecta pessoas com interesses em comum, facilitando interações e
+                descobertas entre uma comunidade.</p>
         </div>
         <div class="login">
             <fieldset>
                 <legend>LOGIN</legend>
                 <label for="email">Insira seu E-mail</label>
                 <input class="input" type="email" id="email">
-                <label for="pass">Insira seu Senha</label>
-                <input class="input" type="password" id="pass">
+                <label for="pass">Insira sua Senha</label>
+                <div class="password-container">
+                    <input class="input" type="password" id="pass">
+                    <img class="eye" src="icons/closeEye.png" alt="Mostrar/ocultar senha">
+                </div>
+
                 <div class="btns">
                     <a href="html/feed.html"><input type="button" value="Logar"></a>
                     <input type="button" value="Cadastre-se">
@@ -37,5 +44,7 @@
         <h1>&copy;BusaiKuna</h1>
     </footer>
     <script src="javascript/theme.js"></script>
+    <script src="javascript/api-request-index.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,30 @@
+.input{
+    margin-bottom: 2vh;
+}
+.password-container .eye {
+  position: absolute;
+  right: 5px;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+
+#error-msg {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    color: red;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 18vh;
+    height: 1.2rem;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    padding: 0 40px;
+    border-radius: 15px;
+}
+#error-msg.show {
+    opacity: 1;
+}

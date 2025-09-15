@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APHELION - Login</title>
+    <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../icons/iconAphelion.png">
+            <h1>Aphelion</h1>
+        </div>
+        <img class="theme" src="../icons/iconTheme.png">
+    </header>
+    <main>
+        <div class="description-site">
+            <p>Aphelion é uma rede social que conecta pessoas com interesses em comum, facilitando interações e
+                descobertas entre uma comunidade.</p>
+        </div>
+        <div class="login">
+            <fieldset>
+                <legend>LOGIN</legend>
+                <label for="email">Insira seu Username</label>
+                <input class="input" type="email" id="email">
+                <label for="email">Insira seu E-mail</label>
+                <input class="input" type="email" id="email">
+                <label for="pass">Insira sua Senha</label>
+                <div class="password-container">
+                    <input class="input" type="password" id="pass">
+                    <img class="eye" src="../icons/closeEye.png" alt="Mostrar/ocultar senha">
+                </div>
+                <label for="pass1">Confirme sua Senha</label>
+                <div class="password-container">
+                    <input class="input" type="password" id="pass1">
+                    <img class="eye1" src="../icons/closeEye.png" alt="Mostrar/ocultar senha">
+                </div>
+                <div class="btns">
+                    <a href=""><input type="button" value="Logar"></a>
+                    <input type="button" value="Cadastre-se">
+                </div>
+            </fieldset>
+            <div id="error-msg">As senhas não coincidem!</div>
+        </div>
+    </main>
+    <footer>
+        <h1>&copy;BusaiKuna</h1>
+    </footer>
+    <script src="../javascript/theme.js"></script>
+    <script src="../javascript/api-request-signUp.js"></script>
+    <script>
+        let eye = document.querySelector(".eye")
+        let eye1 = document.querySelector(".eye1")
+        let pass = document.querySelector("#pass")
+        let pass1 = document.querySelector("#pass1")
+        const errorMsg = document.querySelector("#error-msg");
+
+        eye_clicked = false
+        eye1_clicked = false
+
+        eye.addEventListener("click", () => {
+            if (!eye_clicked) {
+                pass.type = "text"
+                eye.src = "../icons/openEye.png"
+            } else {
+                pass.type = "password"
+                eye.src = "../icons/closeEye.png"
+            }
+            switch (eye_clicked) {
+                case false:
+                    eye_clicked = true
+                    break;
+                case true:
+                    eye_clicked = false
+                    break;
+            }
+        })
+
+        eye1.addEventListener("click", () => {
+            if (!eye1_clicked) {
+                pass1.type = "text"
+                eye1.src = "../icons/openEye.png"
+            } else {
+                pass1.type = "password"
+                eye1.src = "../icons/closeEye.png"
+            }
+            switch (eye1_clicked) {
+                case false:
+                    eye1_clicked = true
+                    break;
+                case true:
+                    eye1_clicked = false
+                    break;
+            }
+        })
+
+        function checkPasswords() {
+            if (pass.value !== pass1.value) {
+                pass.style.border = "2px solid red";
+                pass1.style.border = "2px solid red";
+                errorMsg.classList.add("show");
+                return false;
+            } else {
+                pass.style.border = "2px solid green";
+                pass1.style.border = "2px solid green";
+                errorMsg.classList.remove("show");
+                return true;
+            }
+        }
+
+        [pass, pass1].forEach(input => {
+            input.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    checkPasswords();
+                    setTimeout(() => {
+                        errorMsg.classList.remove("show");
+                    }, 5000)
+                }
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

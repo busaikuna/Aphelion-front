@@ -94,11 +94,10 @@ footer{
     width: 40vw;
 }
 fieldset{
-    cursor: pointer;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    transition: all 0.5s;
+    transition: all 1s;
     padding: 50px;
     height: 60%;
     width: 40%;
@@ -143,6 +142,34 @@ legend{
 legend{
     text-align: center;
 }
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container .input {
+  width: 95%;
+  height: 5vh;
+  border-radius: 5px;
+  background: var(--light-dark);
+  border: none;
+  outline: none;
+  color: var(--dark);
+  padding-left: 10px;
+}
+
+.password-container .eye, .password-container .eye1 {
+  position: absolute;
+  right: 5px;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+
+
 @media(max-width:750px) {
     body{
         background: var(--dark);
@@ -157,12 +184,13 @@ legend{
     }
 }
 @media(min-width:750px) {
-    fieldset:hover{
-        width: 50%;
-        height: 70%;
-    }
-    fieldset:active{
-        width: 50%;
-        height: 70%;
-    }
+fieldset:hover {
+    width: 50%;
+    height: 70%;
+}
+
+fieldset:focus-within {
+    width: 50%;
+    height: 70%;
+}
 }
