@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APHELION - Login</title>
+    <title>APHELION - Register</title>
     <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/signUp.css">
@@ -25,9 +25,9 @@
         </div>
         <div class="login">
             <fieldset>
-                <legend>LOGIN</legend>
-                <label for="email">Insira seu Username</label>
-                <input class="input" type="email" id="email">
+                <legend>Cadastro</legend>
+                <label for="username">Insira seu Username</label>
+                <input class="input" type="text" max="15" id="username">
                 <label for="email">Insira seu E-mail</label>
                 <input class="input" type="email" id="email">
                 <label for="pass">Insira sua Senha</label>
@@ -41,7 +41,6 @@
                     <img class="eye1" src="../icons/closeEye.png" alt="Mostrar/ocultar senha">
                 </div>
                 <div class="btns">
-                    <a href=""><input type="button" value="Logar"></a>
                     <input type="button" value="Cadastre-se">
                 </div>
             </fieldset>
@@ -58,7 +57,6 @@
         let eye1 = document.querySelector(".eye1")
         let pass = document.querySelector("#pass")
         let pass1 = document.querySelector("#pass1")
-        const errorMsg = document.querySelector("#error-msg");
 
         eye_clicked = false
         eye1_clicked = false

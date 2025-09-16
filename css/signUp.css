@@ -1,7 +1,11 @@
 .input{
     margin-bottom: 2vh;
 }
-.password-container .eye {
+.btns input{
+    width: 90%;
+    height: 7vh;
+}
+.password-container .eye, .password-container .eye1 {
   position: absolute;
   right: 5px;
   top: 35%;

@@ -1,4 +1,3 @@
-// login.js
 const emailInput = document.getElementById("email");
 const passInput = document.getElementById("pass");
 const loginBtn = document.querySelector(".btns input[type='button']");
@@ -30,7 +29,7 @@ loginBtn.addEventListener("click", async (e) => {
 
         if (data.success) {
             localStorage.setItem("user", JSON.stringify(data.user));
-            window.location.href = "feed.html";
+            window.location.href = "html/feed.html";
         } else {
             errorMsg.textContent = data.message || "Login falhou, tente novamente.";
         }

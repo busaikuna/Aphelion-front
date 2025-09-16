@@ -26,16 +26,17 @@
             <fieldset>
                 <legend>LOGIN</legend>
                 <label for="email">Insira seu E-mail</label>
-                <input class="input" type="email" id="email">
+                <input style="height: 7vh;" class="input" type="email" id="email">
                 <label for="pass">Insira sua Senha</label>
                 <div class="password-container">
-                    <input class="input" type="password" id="pass">
+                    <input style="height: 7vh;" class="input" type="password" id="pass">
                     <img class="eye" src="icons/closeEye.png" alt="Mostrar/ocultar senha">
                 </div>
 
                 <div class="btns">
-                    <a href="html/feed.html"><input type="button" value="Logar"></a>
-                    <input type="button" value="Cadastre-se">
+                    <input type="button" value="Logar">
+                    <p>Caso nao tenha uma conta:</p>
+                    <input id="signUp" type="button" value="Cadastre-se">
                 </div>
             </fieldset>
         </div>
@@ -45,6 +46,31 @@
     </footer>
     <script src="javascript/theme.js"></script>
     <script src="javascript/api-request-index.js"></script>
+    <script src="javascript/form.js"></script>
+    <script>
+        let eye = document.querySelector(".eye")
+        let pass = document.querySelector("#pass")
+
+        eye_clicked = false
+
+        eye.addEventListener("click", () => {
+            if (!eye_clicked) {
+                pass.type = "text"
+                eye.src = "../icons/openEye.png"
+            } else {
+                pass.type = "password"
+                eye.src = "../icons/closeEye.png"
+            }
+            switch (eye_clicked) {
+                case false:
+                    eye_clicked = true
+                    break;
+                case true:
+                    eye_clicked = false
+                    break;
+            }
+        })
+    </script>
 </body>
 
 </html>

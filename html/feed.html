@@ -181,8 +181,6 @@
             </section>
         </main>
     </div>
-    
-    <!-- Added mobile menu functionality -->
     <script>
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
@@ -200,7 +198,6 @@
             overlay.classList.remove('active');
         }
         
-        // Close mobile menu when window is resized to desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 closeMobileMenu();
@@ -208,6 +205,6 @@
         });
     </script>
     
-    <script src="javascript/api-request.js"></script>
+    <script src="../javascript/api-request-post.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-:root{
+
+:root {
     --dark: #101010;
     --light-dark: #646464;
     --light: #B2BEBF;
@@ -7,18 +8,20 @@
     --logo: #DEE0DC;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     user-select: none;
 }
-body{
-    overflow: hidden;
+
+body {
+    overflow: hidden !important;
     color: #fff;
     font-family: "Kanit";
     background: var(--light-dark);
 }
-header{
+
+header {
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -26,14 +29,16 @@ header{
     top: 0;
     padding: 15px;
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
 }
-footer{
+
+footer {
     color: var(--light-dark);
     font-family: "Roboto Mono";
     font-style: normal;
@@ -45,23 +50,27 @@ footer{
     position: absolute;
     width: 100vw;
 }
-.logo img{
+
+.logo img {
     border-radius: 12px;
     width: 50px;
 }
-.logo h1{
+
+.logo h1 {
     color: var(--logo);
     font-family: "Roboto Mono";
     font-style: normal;
     font-size: 1rem;
 }
-.theme{
+
+.theme {
     cursor: pointer;
     margin-right: 45px;
     width: 40px;
     height: 40px;
 }
-.description-site p{
+
+.description-site p {
     user-select: all;
     color: var(--light);
     transition: all 1s;
@@ -70,12 +79,14 @@ footer{
     text-align: left;
     margin: 25px;
 }
+
 .logo {
     gap: 10px;
     display: flex;
     align-items: center;
 }
-.description-site{
+
+.description-site {
     height: 100vh;
     width: 60vw;
     display: flex;
@@ -85,7 +96,8 @@ footer{
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-.login{
+
+.login {
     color: var(--light);
     display: flex;
     justify-content: center;
@@ -93,7 +105,8 @@ footer{
     height: 100vh;
     width: 40vw;
 }
-fieldset{
+
+fieldset {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -105,7 +118,8 @@ fieldset{
     border: var(--light) 1px solid;
     border-radius: 10px;
 }
-legend{
+
+legend {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,82 +129,114 @@ legend{
     height: 5vh;
     border-radius: 5px;
 }
-.input{
+
+.input {
     color: var(--dark);
     padding-left: 10px;
-    margin-bottom: 8vh;
+    margin-bottom: 5vh;
     outline: none;
     border: none;
     background: var(--light-dark);
     height: 5vh;
     border-radius: 5px;
 }
-.btns{
+
+.btns {
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
-.btns input{
+
+.btns input {
     border-radius: 5px;
     font-size: 0.8rem;
-    margin: 5px;
     cursor: pointer;
-    height: 5vh;
-    width: 43%;
+    height: 6vh;
+    width: 100%;
     color: var(--light);
     background: var(--dark-light);
     border: none;
+    margin-bottom: 5vh;
 }
-legend{
+
+.btns #signUp {
+    margin: 0;
+    height: 4vh;
+    width: 70%;
+}
+
+legend {
     text-align: center;
 }
 
 .password-container {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .password-container .input {
-  width: 95%;
-  height: 5vh;
-  border-radius: 5px;
-  background: var(--light-dark);
-  border: none;
-  outline: none;
-  color: var(--dark);
-  padding-left: 10px;
+    width: 95%;
+    height: 5vh;
+    border-radius: 5px;
+    background: var(--light-dark);
+    border: none;
+    outline: none;
+    color: var(--dark);
+    padding-left: 10px;
 }
 
-.password-container .eye, .password-container .eye1 {
-  position: absolute;
-  right: 5px;
-  top: 35%;
-  transform: translateY(-50%);
-  width: 20px;
-  cursor: pointer;
-  filter: brightness(0) invert(1);
+.password-container .eye,
+.password-container .eye1 {
+    position: absolute;
+    right: 5px;
+    top: 20%;
+    transform: translateY(-50%);
+    width: 20px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
 }
 
 
 @media(max-width:750px) {
-    body{
+    body {
         background: var(--dark);
     }
-    .description-site{
+    main{
+        overflow: hidden;
+    }
+
+    .description-site {
         display: none;
     }
-    fieldset{
+
+    fieldset {
         margin-top: 5vh;
         width: 70%;
         height: 55%;
     }
-}
-@media(min-width:750px) {
-fieldset:hover {
-    width: 50%;
-    height: 70%;
+        .input {
+        color: var(--dark);
+        padding-left: 10px;
+        margin-bottom: 4vh;
+        outline: none;
+        border: none;
+        background: var(--light-dark);
+        height: 4vh !important;
+        border-radius: 5px;
+    }
 }
 
-fieldset:focus-within {
-    width: 50%;
-    height: 70%;
-}
+@media(min-width:750px) {
+    fieldset:hover {
+        width: 50%;
+        height: 70%;
+    }
+
+    fieldset:focus-within {
+        width: 50%;
+        height: 70%;
+    }
 }
