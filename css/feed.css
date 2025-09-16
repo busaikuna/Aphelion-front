@@ -18,6 +18,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   display: flex;
+  visibility: hidden;
   height: 100vh;
   overflow: hidden;
 }
@@ -191,17 +192,17 @@ body {
 }
 
 .media-content {
-  background-color: #1e1e1e;
-  border: 1px solid #2d2d2d;
-  border-radius: 8px;
   margin: 10px 0;
   overflow: hidden;
 }
 
 .media-content img {
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 10px;
   width: 70%;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .media-content pre {
@@ -452,9 +453,11 @@ body {
   .logo img {
     display: none;
   }
+
   .logo h1 {
     padding-left: 40px;
   }
+
   body {
     padding-top: 60px;
   }

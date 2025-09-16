@@ -22,14 +22,15 @@ loginBtn.addEventListener("click", async (e) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify({ email, password })
         });
 
         const data = await response.json();
 
-        if (data.success) {
-            localStorage.setItem("user", JSON.stringify(data.user));
-            window.location.href = "html/feed.html";
+        if (data) {
+            sessionStorage.setItem("accessToken", data.accessToken)
+            window.location.href = "./feed.html";
         } else {
             errorMsg.textContent = data.message || "Login falhou, tente novamente.";
         }

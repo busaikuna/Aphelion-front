@@ -188,11 +188,10 @@ legend {
     padding-left: 10px;
 }
 
-.password-container .eye,
-.password-container .eye1 {
+.password-container .eye {
     position: absolute;
     right: 5px;
-    top: 20%;
+    top: 30%;
     transform: translateY(-50%);
     width: 20px;
     cursor: pointer;

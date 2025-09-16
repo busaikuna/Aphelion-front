@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Aphelion</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
+</head>
+
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    <div class="sidebar-overlay" onclick="closeMobileMenu()"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../icons/iconAphelion.png" alt="Aphelion">
+            <h1>Aphelion</h1>
+        </div>
+        <ul>
+            <li><a href="feed.html">Feed</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="chat.html">Messages</a></li>
+            <li class="active">Profile</li>
+        </ul>
+        <div class="account">
+            <img src="../icons/accountIcon.png" alt="Account">
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src="../icons/accountIcon.png" alt="Profile">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Busaikuna Inc</h2>
+                        <p>@busai#2704</p>
+                    </div>
+                </div>
+                <div class="new-post">
+                    <img src="../icons/moreIcon.png" alt="New Post">
+                    <h1>New Post</h1>
+                </div>
+                <ul class="sidebar-menu">
+                    <li>Notifications</li>
+                    <li>Messages</li>
+                    <li>Settings</li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div class="profile-header">
+                <div class="cover-photo">
+                    <img src="/placeholder.svg?height=200&width=800" alt="Cover Photo">
+                </div>
+                <div class="profile-main">
+                    <div class="profile-avatar">
+                        <img src="../icons/accountIcon.png" alt="Profile Avatar">
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-secondary">Edit Profile</button>
+                        <button class="btn-primary">Follow</button>
+                    </div>
+                </div>
+
+                <div class="profile-info-section">
+                    <div class="profile-name-section">
+                        <h1>Busaikuna Inc</h1>
+                        <p class="username">@busai#2704</p>
+                    </div>
+
+                    <div class="profile-bio">
+                        <p>Software development company focused on innovative solutions and cutting-edge technology.
+                            Building the future, one line of code at a time. 🚀</p>
+                        <div class="profile-meta">
+                            <span class="location">📍 San Francisco, CA</span>
+                            <span class="website">🔗 busaikuna.com</span>
+                            <span class="joined">📅 Joined March 2023</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">1,234</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5,678</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12.3K</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">890</span>
+                            <span class="stat-label">Likes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="posts-feed">
+                <div class="feed-header">
+                    <h2>Posts</h2>
+                    <span class="post-count">1,234 posts</span>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <img src="../icons/accountIcon.png" alt="Profile">
+                            </div>
+                            <div class="post-profile-info">
+                                <h3>Busaikuna Inc</h3>
+                                <p>@busai#2704</p>
+                            </div>
+                        </div>
+                        <div class="post-time">3h</div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just shipped a new feature that improves performance by 40%! The team has been working hard
+                            on optimizing our algorithms and it's finally paying off. Excited to see how our users
+                            respond to these improvements.</p>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <div class="action-item">
+                                <img src="../icons/like.png" alt="Like">
+                                <span>124</span>
+                            </div>
+                            <div class="action-item">
+                                <img src="../icons/comentActive.png" alt="Comment">
+                                <span>23</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <img src="../icons/accountIcon.png" alt="Profile">
+                            </div>
+                            <div class="post-profile-info">
+                                <h3>Busaikuna Inc</h3>
+                                <p>@busai#2704</p>
+                            </div>
+                        </div>
+                        <div class="post-time">1d</div>
+                    </div>
+                    <div class="post-content">
+                        <p>Working on some exciting new projects! Can't share all the details yet, but let's just say
+                            the future of web development is looking bright. Stay tuned for some major announcements
+                            coming soon.</p>
+                        <div class="media-content">
+                            <img src="/placeholder.svg?height=300&width=500" alt="Office workspace">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <div class="action-item">
+                                <img src="../icons/like.png" alt="Like">
+                                <span>89</span>
+                            </div>
+                            <div class="action-item">
+                                <img src="../icons/comentActive.png" alt="Comment">
+                                <span>12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <img src="../icons/accountIcon.png" alt="Profile">
+                            </div>
+                            <div class="post-profile-info">
+                                <h3>Busaikuna Inc</h3>
+                                <p>@busai#2704</p>
+                            </div>
+                        </div>
+                        <div class="post-time">2d</div>
+                    </div>
+                    <div class="post-content">
+                        <p>Here's a snippet of the new authentication system we've been building. Clean, secure, and
+                            efficient!</p>
+                        <div class="media-content">
+                            <pre><code>const authenticateUser = async (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id);
+    
+    if (!user || !user.isActive) {
+      throw new Error('Invalid user');
+    }
+    
+    return { success: true, user };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+};</code></pre>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <div class="action-item">
+                                <img src="../icons/like.png" alt="Like">
+                                <span>156</span>
+                            </div>
+                            <div class="action-item">
+                                <img src="../icons/comentActive.png" alt="Comment">
+                                <span>34</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <img src="../icons/accountIcon.png" alt="Profile">
+                            </div>
+                            <div class="post-profile-info">
+                                <h3>Busaikuna Inc</h3>
+                                <p>@busai#2704</p>
+                            </div>
+                        </div>
+                        <div class="post-time">3d</div>
+                    </div>
+                    <div class="post-content">
+                        <p>Excited to announce our partnership with leading tech companies to bring innovative solutions
+                            to the market. This collaboration will revolutionize how we approach software development
+                            and user experience design.</p>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <div class="action-item">
+                                <img src="../icons/like.png" alt="Like">
+                                <span>203</span>
+                            </div>
+                            <div class="action-item">
+                                <img src="../icons/comentActive.png" alt="Comment">
+                                <span>45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+
+</html>

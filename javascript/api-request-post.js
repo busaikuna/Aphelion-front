@@ -1,23 +1,60 @@
 const postSection = document.querySelector(".post-section");
 
+async function getAccessToken() {
+    let token = sessionStorage.getItem("accessToken");
+
+    if (!token) {
+        try {
+            const res = await fetch("http://localhost:8008/refresh", {
+                method: "POST",
+                credentials: "include"
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                token = data.accessToken;
+                sessionStorage.setItem("accessToken", token);
+            } else {
+                window.location.href = "./index.html";
+                return null;
+            }
+        } catch (err) {
+            console.error("Erro no refresh:", err);
+            window.location.href = "./index.html";
+            return null;
+        }
+    }
+
+    return token;
+}
+
+
+
+
 function formatDate(dateStr) {
     const dateHJ = new Date()
-    let date_hj =  dateHJ.toLocaleDateString();
+    let date_hj = dateHJ.toLocaleDateString();
     const date = new Date(dateStr);
-    if(date_hj == date.toLocaleDateString()){
+    if (date_hj == date.toLocaleDateString()) {
         return "Hoje"
     }
-    else{
-    return date.toLocaleDateString();
+    else {
+        return date.toLocaleDateString();
     }
 }
 
 async function loadPosts() {
     try {
-        const response = await fetch("http://localhost:8008/posts");
+        const token = await getAccessToken();
+        if (!token) return;
+
+        const response = await fetch("http://localhost:8008/posts", {
+            headers: { Authorization: `Bearer ${token}` }
+        });
         if (!response.ok) throw new Error("Erro ao buscar posts: " + response.status);
         const posts = await response.json();
         console.log("Posts recebidos:", posts);
+        document.body.style.visibility = "visible"
 
         postSection.innerHTML = "";
 
