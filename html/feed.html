@@ -18,20 +18,8 @@
             <img src="../icons/iconAphelion.png">
             <h1>Aphelion</h1>
         </div>
-        <ul>
-            <a href="feed.html">
-                <li>Feed</li>
-            </a>
-            <a href="notifications.html">
-                <li>Notifications</li>
-            </a>
-            <a href="chat.html">
-                <li>Messages</li>
-            </a>
-            <li>Profile</li>
-        </ul>
         <div class="account">
-            <img src="../icons/accountIcon.png">
+            <a href="profile.html"><img class="image-profile" src="../icons/accountIcon.png"></a>
         </div>
     </header>
     <div class="container">
@@ -39,10 +27,10 @@
             <div class="sidebar-content">
                 <div class="profile">
                     <div class="profile-image">
-                        <img src="../icons/accountIcon.png">
+                        <img style=" width: 45px; height: 45px; border-radius: 100%;" class="image-profile" src="../icons/accountIcon.png">
                     </div>
                     <div class="profile-info">
-                        <h2>Busaikuna Inc</h2>
+                        <h2 id="username">Busaikuna Inc</h2>
                         <p>@busai#2704</p>
                     </div>
                 </div>
@@ -215,7 +203,7 @@
         </div>
     </div>
 
-    <script src="../javascript/api-request-post.js"></script>
+    <script type="module" src="../javascript/api-request-post.js"></script>
     <script src="../javascript/modal-post.js"></script>
     <script src="../javascript/create-post.js"></script>
 </body>

@@ -1,3 +1,11 @@
+:root {
+  --background-color: #121212;
+  --text-color: #fff;
+  --sidebar-background-color: #1c1c1c;
+  --sidebar-text-color: #bbb;
+  --input-background-color: #333;
+}
+
 .header {
   position: fixed;
   top: 0;

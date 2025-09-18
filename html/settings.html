@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Aphelion</title>
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="/placeholder.svg?height=32&width=32" alt="Aphelion Logo">
+                    <h1>Aphelion</h1>
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="profile.html" class="nav-link">Feed</a></li>
+                    <li><a href="#" class="nav-link">Explorar</a></li>
+                    <li><a href="#" class="nav-link">Notificações</a></li>
+                    <li><a href="#" class="nav-link">Mensagens</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <button class="search-btn" aria-label="Pesquisar">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Search" class="search-icon">
+                </button>
+                <div class="user-menu">
+                    <img src="/placeholder.svg?height=32&width=32" alt="User Avatar" class="user-avatar">
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="profile.html" class="dropdown-item">Perfil</a>
+                        <a href="#" class="dropdown-item active">Configurações</a>
+                        <a href="#" class="dropdown-item">Ajuda</a>
+                        <hr class="dropdown-divider">
+                        <a href="index.html" class="dropdown-item">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <!-- User Profile Quick View -->
+                <div class="sidebar-profile">
+                    <div class="profile-image">
+                        <img src="/placeholder.svg?height=48&width=48" alt="Profile">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Busaikuna Inc</h3>
+                        <p>@busai#2704</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="sidebar-nav">
+                    <ul class="nav-menu">
+                        <li><a href="profile.html" class="nav-item">
+                            <img src="/placeholder.svg?height=20&width=20" alt="Home" class="nav-icon">
+                            <span>Início</span>
+                        </a></li>
+                        <li><a href="profile.html" class="nav-item">
+                            <img src="/placeholder.svg?height=20&width=20" alt="Profile" class="nav-icon">
+                            <span>Perfil</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item">
+                            <img src="/placeholder.svg?height=20&width=20" alt="Notifications" class="nav-icon">
+                            <span>Notificações</span>
+                            <span class="notification-badge">3</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item">
+                            <img src="/placeholder.svg?height=20&width=20" alt="Messages" class="nav-icon">
+                            <span>Mensagens</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item active">
+                            <img src="/placeholder.svg?height=20&width=20" alt="Settings" class="nav-icon">
+                            <span>Configurações</span>
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Settings Header -->
+            <div class="settings-header">
+                <div class="header-content">
+                    <h1>Configurações</h1>
+                    <p>Gerencie suas preferências e configurações da conta</p>
+                </div>
+                <button class="back-btn" onclick="history.back()" aria-label="Voltar">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Back" class="back-icon">
+                    <span>Voltar</span>
+                </button>
+            </div>
+
+            <!-- Settings Navigation -->
+            <div class="settings-nav">
+                <button class="settings-nav-btn active" data-section="account">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Account" class="nav-btn-icon">
+                    <span>Conta</span>
+                </button>
+                <button class="settings-nav-btn" data-section="privacy">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Privacy" class="nav-btn-icon">
+                    <span>Privacidade</span>
+                </button>
+                <button class="settings-nav-btn" data-section="notifications">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Notifications" class="nav-btn-icon">
+                    <span>Notificações</span>
+                </button>
+                <button class="settings-nav-btn" data-section="appearance">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Appearance" class="nav-btn-icon">
+                    <span>Aparência</span>
+                </button>
+                <button class="settings-nav-btn" data-section="security">
+                    <img src="/placeholder.svg?height=20&width=20" alt="Security" class="nav-btn-icon">
+                    <span>Segurança</span>
+                </button>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Account Section -->
+                <section class="settings-section active" id="account">
+                    <div class="section-header">
+                        <h2>Informações da Conta</h2>
+                        <p>Gerencie suas informações pessoais e dados da conta</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Perfil Público</h3>
+                        <div class="form-group">
+                            <label for="displayName">Nome de Exibição</label>
+                            <input type="text" id="displayName" value="Busaikuna Inc" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nome de Usuário</label>
+                            <div class="input-with-prefix">
+                                <span class="input-prefix">@</span>
+                                <input type="text" id="username" value="busai#2704" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Biografia</label>
+                            <textarea id="bio" class="form-textarea" rows="3" placeholder="Conte um pouco sobre você...">Software development company focused on innovative solutions and cutting-edge technology. Building the future, one line of code at a time. 🚀</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Localização</label>
+                            <input type="text" id="location" value="San Francisco, CA" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" value="https://busaikuna.com" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Informações de Contato</h3>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" value="contact@busaikuna.com" class="form-input">
+                            <small class="form-help">Seu e-mail não será exibido publicamente</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" value="+1 (555) 123-4567" class="form-input">
+                            <small class="form-help">Opcional - usado para recuperação de conta</small>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Configurações de Conta</h3>
+                        <div class="form-group">
+                            <label for="language">Idioma</label>
+                            <select id="language" class="form-select">
+                                <option value="pt-BR" selected>Português (Brasil)</option>
+                                <option value="en-US">English (US)</option>
+                                <option value="es-ES">Español</option>
+                                <option value="fr-FR">Français</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timezone">Fuso Horário</label>
+                            <select id="timezone" class="form-select">
+                                <option value="America/Sao_Paulo" selected>São Paulo (GMT-3)</option>
+                                <option value="America/New_York">New York (GMT-5)</option>
+                                <option value="Europe/London">London (GMT+0)</option>
+                                <option value="Asia/Tokyo">Tokyo (GMT+9)</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Privacy Section -->
+                <section class="settings-section" id="privacy">
+                    <div class="section-header">
+                        <h2>Privacidade e Segurança</h2>
+                        <p>Controle quem pode ver seu conteúdo e interagir com você</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Visibilidade do Perfil</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Perfil Público</h4>
+                                    <p>Permite que qualquer pessoa veja seu perfil</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Indexação por Mecanismos de Busca</h4>
+                                    <p>Permite que seu perfil apareça em resultados de busca</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Interações</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Permitir Mensagens Diretas</h4>
+                                    <p>Qualquer pessoa pode enviar mensagens para você</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Permitir Menções</h4>
+                                    <p>Outros usuários podem mencionar você em posts</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Mostrar Status Online</h4>
+                                    <p>Outros usuários podem ver quando você está online</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Conteúdo</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Filtrar Conteúdo Sensível</h4>
+                                    <p>Oculta automaticamente conteúdo potencialmente sensível</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Bloquear Usuários Não Verificados</h4>
+                                    <p>Limita interações de contas não verificadas</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications Section -->
+                <section class="settings-section" id="notifications">
+                    <div class="section-header">
+                        <h2>Notificações</h2>
+                        <p>Escolha como e quando você quer ser notificado</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Notificações Push</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Ativar Notificações Push</h4>
+                                    <p>Receba notificações no seu dispositivo</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Novos Seguidores</h4>
+                                    <p>Quando alguém começar a seguir você</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Curtidas em Posts</h4>
+                                    <p>Quando alguém curtir seus posts</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Comentários</h4>
+                                    <p>Quando alguém comentar em seus posts</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Menções</h4>
+                                    <p>Quando alguém mencionar você</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Notificações por E-mail</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Resumo Semanal</h4>
+                                    <p>Receba um resumo das suas atividades semanalmente</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Atualizações de Segurança</h4>
+                                    <p>Notificações importantes sobre sua conta</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Novidades e Recursos</h4>
+                                    <p>Fique por dentro das novidades do Aphelion</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Horário de Silêncio</h3>
+                        <div class="form-group">
+                            <label>Não perturbe entre:</label>
+                            <div class="time-range">
+                                <input type="time" value="22:00" class="form-input time-input">
+                                <span>e</span>
+                                <input type="time" value="08:00" class="form-input time-input">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Appearance Section -->
+                <section class="settings-section" id="appearance">
+                    <div class="section-header">
+                        <h2>Aparência</h2>
+                        <p>Personalize a aparência do Aphelion</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Tema</h3>
+                        <div class="theme-options">
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="light">
+                                <div class="theme-preview light">
+                                    <div class="theme-header"></div>
+                                    <div class="theme-content">
+                                        <div class="theme-sidebar"></div>
+                                        <div class="theme-main"></div>
+                                    </div>
+                                </div>
+                                <span>Claro</span>
+                            </label>
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="dark" checked>
+                                <div class="theme-preview dark">
+                                    <div class="theme-header"></div>
+                                    <div class="theme-content">
+                                        <div class="theme-sidebar"></div>
+                                        <div class="theme-main"></div>
+                                    </div>
+                                </div>
+                                <span>Escuro</span>
+                            </label>
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="auto">
+                                <div class="theme-preview auto">
+                                    <div class="theme-header"></div>
+                                    <div class="theme-content">
+                                        <div class="theme-sidebar"></div>
+                                        <div class="theme-main"></div>
+                                    </div>
+                                </div>
+                                <span>Automático</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Personalização</h3>
+                        <div class="form-group">
+                            <label for="accentColor">Cor de Destaque</label>
+                            <div class="color-picker">
+                                <input type="color" id="accentColor" value="#8b5cf6" class="color-input">
+                                <div class="color-presets">
+                                    <button class="color-preset" data-color="#8b5cf6" style="background: #8b5cf6;"></button>
+                                    <button class="color-preset" data-color="#3b82f6" style="background: #3b82f6;"></button>
+                                    <button class="color-preset" data-color="#10b981" style="background: #10b981;"></button>
+                                    <button class="color-preset" data-color="#f59e0b" style="background: #f59e0b;"></button>
+                                    <button class="color-preset" data-color="#ef4444" style="background: #ef4444;"></button>
+                                    <button class="color-preset" data-color="#8b5cf6" style="background: #8b5cf6;"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Animações Reduzidas</h4>
+                                    <p>Reduz animações para melhor performance</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Modo Compacto</h4>
+                                    <p>Exibe mais conteúdo na tela</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Fonte</h3>
+                        <div class="form-group">
+                            <label for="fontSize">Tamanho da Fonte</label>
+                            <div class="font-size-slider">
+                                <span class="font-size-label small">A</span>
+                                <input type="range" id="fontSize" min="12" max="20" value="16" class="slider">
+                                <span class="font-size-label large">A</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section class="settings-section" id="security">
+                    <div class="section-header">
+                        <h2>Segurança</h2>
+                        <p>Mantenha sua conta segura</p>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Senha</h3>
+                        <div class="form-group">
+                            <label for="currentPassword">Senha Atual</label>
+                            <input type="password" id="currentPassword" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Nova Senha</label>
+                            <input type="password" id="newPassword" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Nova Senha</label>
+                            <input type="password" id="confirmPassword" class="form-input">
+                        </div>
+                        <button class="btn-secondary">Alterar Senha</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Autenticação de Dois Fatores</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Ativar 2FA</h4>
+                                    <p>Adiciona uma camada extra de segurança à sua conta</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="security-info">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Info" class="info-icon">
+                            <p>Recomendamos ativar a autenticação de dois fatores para maior segurança.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Sessões Ativas</h3>
+                        <div class="sessions-list">
+                            <div class="session-item current">
+                                <div class="session-info">
+                                    <div class="session-device">
+                                        <img src="/placeholder.svg?height=20&width=20" alt="Desktop" class="device-icon">
+                                        <span>Chrome no Windows</span>
+                                        <span class="current-badge">Atual</span>
+                                    </div>
+                                    <div class="session-details">
+                                        <span>São Paulo, Brasil</span>
+                                        <span>Ativo agora</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <div class="session-device">
+                                        <img src="/placeholder.svg?height=20&width=20" alt="Mobile" class="device-icon">
+                                        <span>Safari no iPhone</span>
+                                    </div>
+                                    <div class="session-details">
+                                        <span>São Paulo, Brasil</span>
+                                        <span>2 horas atrás</span>
+                                    </div>
+                                </div>
+                                <button class="btn-danger-outline">Encerrar</button>
+                            </div>
+                        </div>
+                        <button class="btn-danger-outline">Encerrar Todas as Outras Sessões</button>
+                    </div>
+
+                    <div class="settings-card danger-zone">
+                        <h3>Zona de Perigo</h3>
+                        <div class="danger-actions">
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <h4>Desativar Conta</h4>
+                                    <p>Sua conta ficará temporariamente indisponível</p>
+                                </div>
+                                <button class="btn-danger-outline">Desativar</button>
+                            </div>
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <h4>Excluir Conta</h4>
+                                    <p>Exclui permanentemente sua conta e todos os dados</p>
+                                </div>
+                                <button class="btn-danger">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Save Button -->
+            <div class="save-section">
+                <button class="btn-primary save-btn" id="saveSettings">
+                    <span>Salvar Alterações</span>
+                    <div class="btn-loader" id="saveLoader"></div>
+                </button>
+                <button class="btn-secondary" id="resetSettings">Restaurar Padrões</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/settings.js"></script>
+    <!-- Added navigation script -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>

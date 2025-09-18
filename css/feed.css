@@ -5,7 +5,9 @@
   --sidebar-text-color: #bbb;
   --input-background-color: #333;
 }
-
+.image-profile{
+  object-fit: cover;
+}
 * {
   box-sizing: border-box;
   margin: 0;

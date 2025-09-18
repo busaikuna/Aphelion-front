@@ -28,7 +28,7 @@ loginBtn.addEventListener("click", async (e) => {
 
         const data = await response.json();
 
-        if (data) {
+        if (data.accessToken) {
             sessionStorage.setItem("accessToken", data.accessToken)
             window.location.href = "./feed.html";
         } else {

@@ -1,34 +1,16 @@
+import getAccessToken from "./getAccessToken.js";
+import getDataProfile from "./api-request-profile.js";
 const postSection = document.querySelector(".post-section");
+const username = document.querySelector("#username");
+const picsProfile = document.querySelectorAll(".image-profile")
 
-async function getAccessToken() {
-    let token = sessionStorage.getItem("accessToken");
-
-    if (!token) {
-        try {
-            const res = await fetch("http://localhost:8008/refresh", {
-                method: "POST",
-                credentials: "include"
-            });
-
-            if (res.ok) {
-                const data = await res.json();
-                token = data.accessToken;
-                sessionStorage.setItem("accessToken", token);
-            } else {
-                window.location.href = "./index.html";
-                return null;
-            }
-        } catch (err) {
-            console.error("Erro no refresh:", err);
-            window.location.href = "./index.html";
-            return null;
-        }
-    }
-
-    return token;
-}
-
-
+window.addEventListener("load", async () => {
+    const token = await getAccessToken();
+    const data = await getDataProfile(token)
+    dataRefresh(data)
+    console.log(data)
+    console.log("oii")
+});
 
 
 function formatDate(dateStr) {
@@ -126,6 +108,12 @@ async function loadPosts() {
         console.error("Erro ao carregar posts:", err);
         postSection.textContent = "Erro ao carregar posts.";
     }
+}
+
+function dataRefresh(data){
+    picsProfile[0].src = data.profile_picture
+    picsProfile[1].src = data.profile_picture
+    username.textContent = data.profile_username
 }
 
 document.addEventListener("DOMContentLoaded", loadPosts);
