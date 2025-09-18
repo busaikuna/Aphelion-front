@@ -156,7 +156,7 @@ body {
   align-items: center;
 }
 
-.post-profile-image {
+.post-profile-image img{
   object-fit: cover;
   width: 40px;
   height: 40px;

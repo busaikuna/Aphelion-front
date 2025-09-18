@@ -54,7 +54,7 @@ async function loadPosts() {
             postHeader.innerHTML = `
                 <div class="post-profile">
                     <div class="post-profile-image">
-                        <img src="http://localhost:8008/img/${post.author_id}.png" alt="avatar">
+                        <img src=${post.profile_picture} alt="avatar">
                     </div>
                     <div class="post-profile-info">
                         <h3>${post.username}</h3>
