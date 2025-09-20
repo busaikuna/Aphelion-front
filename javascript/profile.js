@@ -5,6 +5,7 @@ const addressInf = document.querySelector("#addressInfo")
 const siteInf = document.querySelector("#siteInf")
 const createdsInf = document.querySelector("#createdInf")
 const metaLink = document.querySelector(".meta-link")
+const description = document.querySelector(".profile-bio p")
 import getAccessToken from "./getAccessToken.js";
 import getDataProfile from "./api-request-profile.js";
 
@@ -24,6 +25,7 @@ function dataRefresh(data) {
     siteInf.textContent = data.profile_website
     metaLink.href = formatURL(data.profile_website);
     createdsInf.textContent = data.profile_createdAt
+    description.textContent = ((data.profile_description ? data.profile_description : "Sem bio ainda"))
 }
 
     function formatURL(url) {

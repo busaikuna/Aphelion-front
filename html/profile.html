@@ -77,19 +77,43 @@
                                 placeholder="https://seusite.com">
                         </div>
 
+                        <!-- Adicionando campo de bio/description -->
+                        <div class="form-group">
+                            <label class="form-label" for="description">Bio</label>
+                            <textarea id="description" name="description" class="form-textarea"
+                                placeholder="Conte um pouco sobre você..." rows="3" maxlength="160"></textarea>
+                            <div class="char-counter">
+                                <span id="charCount">0</span>/160
+                            </div>
+                        </div>
+
                         <div class="image-upload-group">
-                            <div id="profileUpload" class="image-upload" >
+                            <!-- Melhorando preview da foto de perfil -->
+                            <div id="profileUpload" class="image-upload">
                                 <div class="image-upload-label">Foto do Perfil</div>
-                                <div class="image-upload-icon">📷</div>
-                                <div class="image-upload-text">Clique para selecionar</div>
+                                <div class="image-preview" id="profilePreview">
+                                    <div class="preview-placeholder">
+                                        <div class="image-upload-icon">📷</div>
+                                        <div class="image-upload-text">Clique para selecionar</div>
+                                    </div>
+                                    <img id="profilePreviewImg" class="preview-img" style="display: none;" alt="Preview">
+                                    <button type="button" class="remove-image" id="removeProfile" style="display: none;">×</button>
+                                </div>
                                 <input type="file" id="profilePicture" name="profile_picture" accept="image/*"
                                     style="display: none;">
                             </div>
 
+                            <!-- Melhorando preview da foto de capa -->
                             <div id="bannerUpload" class="image-upload">
                                 <div class="image-upload-label">Foto de Capa</div>
-                                <div class="image-upload-icon">🖼️</div>
-                                <div class="image-upload-text">Clique para selecionar</div>
+                                <div class="image-preview banner-preview" id="bannerPreview">
+                                    <div class="preview-placeholder">
+                                        <div class="image-upload-icon">🖼️</div>
+                                        <div class="image-upload-text">Clique para selecionar</div>
+                                    </div>
+                                    <img id="bannerPreviewImg" class="preview-img" style="display: none;" alt="Preview">
+                                    <button type="button" class="remove-image" id="removeBanner" style="display: none;">×</button>
+                                </div>
                                 <input type="file" id="bannerPicture" name="banner_picture" accept="image/*"
                                     style="display: none;">
                             </div>
@@ -117,7 +141,7 @@
             <div class="profile-main">
                 <div class="profile-avatar-section">
                     <div class="profile-avatar">
-                        <img id="img-profile" src="" alt="Profile Avatar">
+                        <img id="img-profile" src="/placeholder.svg" alt="Profile Avatar">
                     </div>
                 </div>
 
@@ -188,7 +212,7 @@
                         <div class="post-header">
                             <div class="post-author">
                                 <div class="author-avatar">
-                                    <img src="" alt="Author">
+                                    <img src="/placeholder.svg" alt="Author">
                                 </div>
                                 <div class="author-info">
                                     <h3>Busaikuna Inc</h3>
@@ -196,7 +220,7 @@
                                 </div>
                             </div>
                             <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="" alt="Menu" class="menu-icon">
+                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
                             </button>
                         </div>
 
@@ -208,19 +232,19 @@
 
                         <div class="post-actions">
                             <button class="action-btn">
-                                <img src="" alt="Reply" class="action-icon">
+                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
                                 <span>124</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Repost" class="action-icon">
+                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
                                 <span>23</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Like" class="action-icon">
+                                <img src="/placeholder.svg" alt="Like" class="action-icon">
                                 <span>456</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Share" class="action-icon">
+                                <img src="/placeholder.svg" alt="Share" class="action-icon">
                             </button>
                         </div>
                     </article>
@@ -229,7 +253,7 @@
                         <div class="post-header">
                             <div class="post-author">
                                 <div class="author-avatar">
-                                    <img src="" alt="Author">
+                                    <img src="/placeholder.svg" alt="Author">
                                 </div>
                                 <div class="author-info">
                                     <h3>Busaikuna Inc</h3>
@@ -237,7 +261,7 @@
                                 </div>
                             </div>
                             <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="" alt="Menu" class="menu-icon">
+                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
                             </button>
                         </div>
 
@@ -247,25 +271,25 @@
                                 announcements coming soon.</p>
 
                             <div class="post-media">
-                                <img src="" alt="Project preview">
+                                <img src="/placeholder.svg" alt="Project preview">
                             </div>
                         </div>
 
                         <div class="post-actions">
                             <button class="action-btn">
-                                <img src="" alt="Reply" class="action-icon">
+                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
                                 <span>89</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Repost" class="action-icon">
+                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
                                 <span>12</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Like" class="action-icon">
+                                <img src="/placeholder.svg" alt="Like" class="action-icon">
                                 <span>234</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Share" class="action-icon">
+                                <img src="/placeholder.svg" alt="Share" class="action-icon">
                             </button>
                         </div>
                     </article>
@@ -274,7 +298,7 @@
                         <div class="post-header">
                             <div class="post-author">
                                 <div class="author-avatar">
-                                    <img src="" alt="Author">
+                                    <img src="/placeholder.svg" alt="Author">
                                 </div>
                                 <div class="author-info">
                                     <h3>Busaikuna Inc</h3>
@@ -282,7 +306,7 @@
                                 </div>
                             </div>
                             <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="" alt="Menu" class="menu-icon">
+                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
                             </button>
                         </div>
 
@@ -294,7 +318,7 @@
                                 <div class="code-header">
                                     <span class="code-language">JavaScript</span>
                                     <button class="copy-btn" aria-label="Copiar código">
-                                        <img src="" alt="Copy" class="copy-icon">
+                                        <img src="/placeholder.svg" alt="Copy" class="copy-icon">
                                     </button>
                                 </div>
                                 <pre><code>const authenticateUser = async (token) => {
@@ -316,19 +340,19 @@
 
                         <div class="post-actions">
                             <button class="action-btn">
-                                <img src="" alt="Reply" class="action-icon">
+                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
                                 <span>156</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Repost" class="action-icon">
+                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
                                 <span>34</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Like" class="action-icon">
+                                <img src="/placeholder.svg" alt="Like" class="action-icon">
                                 <span>678</span>
                             </button>
                             <button class="action-btn">
-                                <img src="" alt="Share" class="action-icon">
+                                <img src="/placeholder.svg" alt="Share" class="action-icon">
                             </button>
                         </div>
                     </article>
@@ -337,7 +361,7 @@
 
             <div class="tab-content" id="replies">
                 <div class="empty-state">
-                    <img src="" alt="No replies" class="empty-icon">
+                    <img src="/placeholder.svg" alt="No replies" class="empty-icon">
                     <h3>Nenhuma resposta ainda</h3>
                     <p>Quando você responder a outros posts, eles aparecerão aqui.</p>
                 </div>
@@ -346,30 +370,29 @@
             <div class="tab-content" id="media">
                 <div class="media-grid">
                     <div class="media-item">
-                        <img src="" alt="Media">
+                        <img src="/placeholder.svg" alt="Media">
                     </div>
                     <div class="media-item">
-                        <img src="" alt="Media">
+                        <img src="/placeholder.svg" alt="Media">
                     </div>
                     <div class="media-item">
-                        <img src="" alt="Media">
+                        <img src="/placeholder.svg" alt="Media">
                     </div>
                     <div class="media-item">
-                        <img src="" alt="Media">
+                        <img src="/placeholder.svg" alt="Media">
                     </div>
                 </div>
             </div>
 
             <div class="tab-content" id="likes">
                 <div class="empty-state">
-                    <img src="" alt="No likes" class="empty-icon">
+                    <img src="/placeholder.svg" alt="No likes" class="empty-icon">
                     <h3>Nenhuma curtida ainda</h3>
                     <p>Quando você curtir posts, eles aparecerão aqui.</p>
                 </div>
             </div>
         </div>
     </main>
-    </div>
     <script type="module" src="../javascript/modal-profile.js"></script>
     <script type="module" src="../javascript/profile.js"></script>
 </body>

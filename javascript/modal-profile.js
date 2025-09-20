@@ -1,187 +1,240 @@
-import getAccessToken from "./getAccessToken.js";
-import getDataProfile from "./api-request-profile.js"
-const openModalButton = document.querySelector("#openModal")
-const BannerInput = document.querySelector("#bannerPicture")
-const profilePicture = document.querySelector("#profilePicture")
-const bannerUpload = document.querySelector("#bannerUpload")
-const saveBtn = document.querySelector("#saveBtn")
-const profileUpload = document.querySelector("#profileUpload")
-const closeModalBtn = document.querySelector("#closeModal")
+class ProfileModal {
+  constructor() {
+    this.modal = document.getElementById("modalOverlay")
+    this.openBtn = document.getElementById("openModal")
+    this.closeBtns = document.querySelectorAll("#closeModal")
+    this.saveBtn = document.getElementById("saveBtn")
+    this.form = document.getElementById("profileForm")
+    this.message = document.getElementById("message")
+    this.profileUpload = document.getElementById("profileUpload")
+    this.bannerUpload = document.getElementById("bannerUpload")
+    this.profileInput = document.getElementById("profilePicture")
+    this.bannerInput = document.getElementById("bannerPicture")
+    this.profilePreview = document.getElementById("profilePreviewImg")
+    this.bannerPreview = document.getElementById("bannerPreviewImg")
+    this.removeProfileBtn = document.getElementById("removeProfile")
+    this.removeBannerBtn = document.getElementById("removeBanner")
 
-openModalButton.addEventListener("click", ()=>{
-    openModal()
-})
-BannerInput.addEventListener("change", (e) => {
-    handleImageUpload(e.target, 'banner')
-});
-bannerUpload.addEventListener("click", ()=>{
-    document.getElementById('bannerPicture').click()
-})
-saveBtn.addEventListener("click", ()=>{
-    saveProfile()
-})
-profilePicture.addEventListener("change", (e) => {
-    handleImageUpload(e.target, 'profile')
-});
-profileUpload.addEventListener("click", ()=>{
-    document.getElementById('profilePicture').click()
-})
-closeModalBtn.addEventListener("click", ()=>{
-    closeModal()
-})
+    this.descriptionField = document.getElementById("description")
+    this.charCounter = document.getElementById("charCount")
 
+    this.init()
+  }
 
-async function openModal() {
-    document.getElementById('modalOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    const token = await getAccessToken()
-    const data = await getDataProfile(token)
+  init() {
+    this.bindEvents()
+    this.setupImagePreviews()
+    this.setupCharCounter()
+  }
 
-    loadCurrentProfile(data);
-}
+  bindEvents() {
+    this.openBtn?.addEventListener("click", () => this.openModal())
+    this.closeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => this.closeModal())
+    })
 
-function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    document.body.style.overflow = 'auto';
-    clearForm();
-}
+    this.modal?.addEventListener("click", (e) => {
+      if (e.target === this.modal) {
+        this.closeModal()
+      }
+    })
 
-document.getElementById('modalOverlay').addEventListener('click', function (e) {
-    if (e.target === this) {
-        closeModal();
+    this.saveBtn?.addEventListener("click", () => this.saveProfile())
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.modal?.classList.contains("active")) {
+        this.closeModal()
+      }
+    })
+  }
+
+  setupImagePreviews() {
+    this.profileUpload?.addEventListener("click", () => {
+      this.profileInput?.click()
+    })
+
+    this.profileInput?.addEventListener("change", (e) => {
+      this.handleImagePreview(e.target.files[0], "profile")
+    })
+
+    this.removeProfileBtn?.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.removeImage("profile")
+    })
+
+    this.bannerUpload?.addEventListener("click", () => {
+      this.bannerInput?.click()
+    })
+
+    this.bannerInput?.addEventListener("change", (e) => {
+      this.handleImagePreview(e.target.files[0], "banner")
+    })
+
+    this.removeBannerBtn?.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.removeImage("banner")
+    })
+  }
+
+  setupCharCounter() {
+    this.descriptionField?.addEventListener("input", (e) => {
+      const length = e.target.value.length
+      const maxLength = 160
+
+      this.charCounter.textContent = length
+
+      const counter = this.charCounter.parentElement
+      counter.classList.remove("warning", "danger")
+
+      if (length > maxLength * 0.8) {
+        counter.classList.add("warning")
+      }
+      if (length > maxLength * 0.95) {
+        counter.classList.add("danger")
+      }
+    })
+  }
+
+  handleImagePreview(file, type) {
+    if (!file) return
+
+    if (!file.type.startsWith("image/")) {
+      this.showMessage("Por favor, selecione apenas arquivos de imagem.", "error")
+      return
     }
-});
 
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        closeModal();
+    if (file.size > 5 * 1024 * 1024) {
+      this.showMessage("A imagem deve ter no máximo 5MB.", "error")
+      return
     }
-});
-function handleImageUpload(input, type) {
-    const file = input.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            input.dataset.base64 = e.target.result;
 
-            const uploadArea = input.parentElement;
-            const textElement = uploadArea.querySelector('.image-upload-text');
-            textElement.textContent = `✓ ${file.name}`;
-            uploadArea.style.borderColor = 'var(--ring)';
-        };
-        reader.readAsDataURL(file);
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      if (type === "profile") {
+        this.profilePreview.src = e.target.result
+        this.profilePreview.style.display = "block"
+        this.removeProfileBtn.style.display = "block"
+        this.profileUpload.querySelector(".preview-placeholder").style.display = "none"
+      } else if (type === "banner") {
+        this.bannerPreview.src = e.target.result
+        this.bannerPreview.style.display = "block"
+        this.removeBannerBtn.style.display = "block"
+        this.bannerUpload.querySelector(".preview-placeholder").style.display = "none"
+      }
     }
-}
+    reader.readAsDataURL(file)
+  }
 
-function loadCurrentProfile(data) {
-    document.getElementById('username').value = data.profile_username;
-    document.getElementById('address').value = data.profile_address;
-    document.getElementById('website').value = data.profile_website;
-}
+  removeImage(type) {
+    if (type === "profile") {
+      this.profileInput.value = ""
+      this.profilePreview.style.display = "none"
+      this.removeProfileBtn.style.display = "none"
+      this.profileUpload.querySelector(".preview-placeholder").style.display = "flex"
+    } else if (type === "banner") {
+      this.bannerInput.value = ""
+      this.bannerPreview.style.display = "none"
+      this.removeBannerBtn.style.display = "none"
+      this.bannerUpload.querySelector(".preview-placeholder").style.display = "flex"
+    }
+  }
 
-function clearForm() {
-    document.getElementById('profileForm').reset();
+  openModal() {
+    this.modal?.classList.add("active")
+    document.body.style.overflow = "hidden"
+    this.loadCurrentData()
+  }
 
-    const uploadAreas = document.querySelectorAll('.image-upload');
-    uploadAreas.forEach(area => {
-        const textElement = area.querySelector('.image-upload-text');
-        textElement.textContent = 'Clique para selecionar';
-        area.style.borderColor = 'var(--border)';
-    });
+  closeModal() {
+    this.modal?.classList.remove("active")
+    document.body.style.overflow = ""
+    this.resetForm()
+  }
 
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    fileInputs.forEach(input => {
-        delete input.dataset.base64;
-    });
+  loadCurrentData() {
+    const username = document.querySelector(".profile-name-section h1")?.textContent || ""
+    const address = document.getElementById("addressInfo")?.textContent || ""
+    const website = document.getElementById("siteInf")?.href || ""
+    const bio = document.querySelector(".profile-bio p")?.textContent || ""
 
-    hideMessage();
-}
+    document.getElementById("username").value = username
+    document.getElementById("address").value = address
+    document.getElementById("website").value = website
+    document.getElementById("description").value = bio
 
-function showMessage(text, type = 'success') {
-    const messageEl = document.getElementById('message');
-    messageEl.textContent = text;
-    messageEl.className = `message ${type}`;
-    messageEl.style.display = 'block';
+    this.charCounter.textContent = bio.length
+  }
 
-    setTimeout(() => {
-        hideMessage();
-    }, 5000);
-}
+  async saveProfile() {
+    const saveText = document.getElementById("saveText")
+    const loading = document.getElementById("loading")
 
-function hideMessage() {
-    const messageEl = document.getElementById('message');
-    messageEl.style.display = 'none';
-}
-
-async function saveProfile() {
-    const saveBtn = document.getElementById('saveBtn');
-    const saveText = document.getElementById('saveText');
-    const loading = document.getElementById('loading');
-
-    saveBtn.disabled = true;
-    saveText.style.display = 'none';
-    loading.style.display = 'inline-block';
+    saveText.style.display = "none"
+    loading.style.display = "inline-block"
+    this.saveBtn.disabled = true
 
     try {
-        const formData = new FormData();
-        formData.append("token", sessionStorage.getItem("accessToken"));
-        formData.append("username", document.getElementById("username").value);
-        formData.append("address", document.getElementById("address").value);
-        formData.append("website", document.getElementById("website").value);
+      const formData = new FormData()
 
-        const profileFile = document.getElementById("profilePicture").files[0];
-        const bannerFile = document.getElementById("bannerPicture").files[0];
+      formData.append("token", sessionStorage.getItem("accessToken"))
+      formData.append("username", document.getElementById("username").value)
+      formData.append("address", document.getElementById("address").value)
+      formData.append("website", document.getElementById("website").value)
+      formData.append("description", document.getElementById("description").value)
 
-        if (profileFile) {
-            formData.append("profile_picture", profileFile);
-        }
-        if (bannerFile) {
-            formData.append("banner_picture", bannerFile);
-        }
+      if (this.profileInput.files[0]) {
+        formData.append("profile_picture", this.profileInput.files[0])
+      }
+      if (this.bannerInput.files[0]) {
+        formData.append("banner_picture", this.bannerInput.files[0])
+      }
+      const response = await fetch("http://localhost:8008/users/profile/edit", {
+        method: "PUT",
+        body: formData,
+      })
 
-        const response = await fetch("http://localhost:8008/users/profile/edit", {
-            method: "PUT",
-            body: formData 
-        });
+      const result = await response.json()
 
-        const result = await response.json();
-        console.log("📡 Resposta backend:", result);
-
-        if (response.ok && result.success) {
-            showMessage("Perfil atualizado com sucesso!", "success");
-
-            setTimeout(() => {
-                closeModal();
-                window.location.reload();
-            }, 2000);
-        } else {
-            throw new Error(result.error || "Erro ao atualizar perfil");
-        }
-
+      if (response.ok) {
+        this.showMessage("Perfil atualizado com sucesso!", "success")
+        setTimeout(() => {
+          this.closeModal()
+          window.location.reload()
+        }, 1500)
+      } else {
+        throw new Error(result.message || "Erro ao atualizar perfil")
+      }
     } catch (error) {
-        console.error("Error updating profile:", error);
-        showMessage(error.message || "Erro ao atualizar perfil. Tente novamente.", "error");
+      console.error("Error updating profile:", error)
+      this.showMessage(error.message || "Erro ao atualizar perfil. Tente novamente.", "error")
     } finally {
-        saveBtn.disabled = false;
-        saveText.style.display = "inline";
-        loading.style.display = "none";
+      saveText.style.display = "inline"
+      loading.style.display = "none"
+      this.saveBtn.disabled = false
     }
+  }
+
+  showMessage(text, type) {
+    this.message.textContent = text
+    this.message.className = `message ${type}`
+    this.message.style.display = "block"
+
+    setTimeout(() => {
+      this.message.style.display = "none"
+    }, 5000)
+  }
+
+  resetForm() {
+    this.form?.reset()
+    this.removeImage("profile")
+    this.removeImage("banner")
+    this.message.style.display = "none"
+    this.charCounter.textContent = "0"
+    this.charCounter.parentElement.classList.remove("warning", "danger")
+  }
 }
 
-
-window.addEventListener('load', function () {
-    const originalFetch = window.fetch;
-    window.fetch = function (url, options) {
-        if (url === '/api/users/profile/edit') {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        ok: true,
-                        json: () => Promise.resolve({ success: true, user: {} })
-                    });
-                }, 1500);
-            });
-        }
-        return originalFetch.apply(this, arguments);
-    };
-});
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  new ProfileModal()
+})

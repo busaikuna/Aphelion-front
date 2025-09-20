@@ -976,7 +976,13 @@ body {
   }
 
   .profile-actions {
-    flex-direction: column;
+    align-items: start;
+    font-size: 10%;
+    padding: 0;
+    margin: 0;
+  }
+  .btn-secondary{
+    margin: 0 !important;
   }
 
   .profile-stats {

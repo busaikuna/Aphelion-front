@@ -1,5 +1,6 @@
 import getAccessToken from "./getAccessToken.js";
 import getDataProfile from "./api-request-profile.js";
+import closeLoading from "./loading.js";
 const postSection = document.querySelector(".post-section");
 const username = document.querySelector("#username");
 const picsProfile = document.querySelectorAll(".image-profile")
@@ -8,8 +9,6 @@ window.addEventListener("load", async () => {
     const token = await getAccessToken();
     const data = await getDataProfile(token)
     dataRefresh(data)
-    console.log(data)
-    console.log("oii")
 });
 
 
@@ -35,8 +34,8 @@ async function loadPosts() {
         });
         if (!response.ok) throw new Error("Erro ao buscar posts: " + response.status);
         const posts = await response.json();
-        console.log("Posts recebidos:", posts);
         document.body.style.visibility = "visible"
+        closeLoading()
 
         postSection.innerHTML = "";
 
@@ -66,10 +65,7 @@ async function loadPosts() {
 
             const postContent = document.createElement("div");
             postContent.className = "post-content";
-
-            const p = document.createElement("p");
-            p.textContent = post.description || post.content;
-            postContent.appendChild(p);
+            postContent.innerHTML = verifyCode(post.description || post.content);
 
             if (post.picture) {
                 const mediaDiv = document.createElement("div");
@@ -77,15 +73,6 @@ async function loadPosts() {
                 const img = document.createElement("img");
                 img.src = post.picture;
                 mediaDiv.appendChild(img);
-                postContent.appendChild(mediaDiv);
-            } else if (/const|let|var|function|=>/.test(post.content)) {
-                const mediaDiv = document.createElement("div");
-                mediaDiv.className = "media-content";
-                const pre = document.createElement("pre");
-                const code = document.createElement("code");
-                code.textContent = post.content;
-                pre.appendChild(code);
-                mediaDiv.appendChild(pre);
                 postContent.appendChild(mediaDiv);
             }
 
@@ -110,10 +97,48 @@ async function loadPosts() {
     }
 }
 
-function dataRefresh(data){
+function dataRefresh(data) {
     picsProfile[0].src = data.profile_picture
     picsProfile[1].src = data.profile_picture
     username.textContent = data.profile_username
+}
+
+function verifyCode(input) {
+    if (!input) return "";
+
+    const escapeHTML = (str) =>
+        str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+    const regex = /<([^<>]+)>/g;
+
+    let lastIndex = 0;
+    let result = "";
+    let match;
+
+    while ((match = regex.exec(input)) !== null) {
+        const textBefore = input.slice(lastIndex, match.index);
+        if (textBefore.trim()) {
+            result += `<p>${escapeHTML(textBefore)}</p>`;
+        }
+
+        const codeContent = match[1];
+        result += `
+            <div class="media-content">
+                <pre><code>${escapeHTML(codeContent)}</code></pre>
+            </div>
+        `;
+
+        lastIndex = regex.lastIndex;
+    }
+
+    const remainingText = input.slice(lastIndex);
+    if (remainingText.trim()) {
+        result += `<p>${escapeHTML(remainingText)}</p>`;
+    }
+
+    return result;
 }
 
 document.addEventListener("DOMContentLoaded", loadPosts);
