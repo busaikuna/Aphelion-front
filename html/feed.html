@@ -7,6 +7,7 @@
     <title>Aphelion</title>
     <link rel="stylesheet" href="../css/feed.css">
     <link rel="stylesheet" href="../css/header-feed.css">
+    <link rel="stylesheet" href="../css/loading.css">
     <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
 </head>
 
@@ -48,134 +49,6 @@
         </nav>
         <main class="content">
             <section class="post-section">
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-profile">
-                            <div class="post-profile-image"></div>
-                            <div class="post-profile-info">
-                                <h3>Acme Inc</h3>
-                                <p>@acme</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tempora repellendus
-                            maiores molestias aperiam neque dignissimos, nihil assumenda corporis iste iure libero non
-                            officia reiciendis, ullam, saepe quis dolores natus.</p>
-                    </div>
-                    <div class="post-actions">
-                        <div class="actions">
-                            <img src="../icons/like.png">
-                            <img src="../icons/comentActive.png">
-                        </div>
-                        <div class="post-time">2h</div>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-profile">
-                            <div class="post-profile-image"></div>
-                            <div class="post-profile-info">
-                                <h3>Acme Inc</h3>
-                                <p>@acme</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tempora repellendus
-                            maiores molestias aperiam neque dignissimos, nihil assumenda corporis iste iure libero non
-                            officia reiciendis, ullam, saepe quis dolores natus.</p>
-                        <div class="media-content">
-                            <img
-                                src="https://th.bing.com/th/id/OIP.XU5VE4CWRgadezp_wRQ42gHaDt?w=317&h=175&c=7&r=0&o=5&pid=1.7">
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <div class="actions">
-                            <img src="../icons/like.png">
-                            <img src="../icons/comentActive.png">
-                        </div>
-                        <div class="post-time">2h</div>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-profile">
-                            <div class="post-profile-image"></div>
-                            <div class="post-profile-info">
-                                <h3>Acme Inc</h3>
-                                <p>@acme</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tempora repellendus
-                            maiores molestias aperiam neque dignissimos, nihil assumenda corporis iste iure libero non
-                            officia reiciendis, ullam, saepe quis dolores natus.</p>
-                        <div class="media-content">
-                            <pre>
-                                <code>
-                        const root = document.documentElement;
-                        const theme = document.querySelector(".theme");
-                        let themeLS = localStorage.getItem("theme");
-                        
-                        window.addEventListener("resize", changeTheme);
-                        
-                        if (!themeLS) {
-                            localStorage.setItem("theme", "dark");
-                            themeLS = "dark";
-                        }
-                        
-                        changeTheme();
-                        
-                        theme.addEventListener("click", () => {
-                            themeLS = localStorage.getItem("theme");
-                            if (themeLS === "dark") {
-                                localStorage.setItem("theme", "light");
-                            } else {
-                                localStorage.setItem("theme", "dark");
-                            }
-                            themeLS = localStorage.getItem("theme");
-                            changeTheme();
-                        });
-                        
-                        function changeTheme() {
-                            if (themeLS) {
-                                if (themeLS === "dark") {
-                                    root.style.setProperty("--dark", "#101010");
-                                    root.style.setProperty("--light-dark", "#646464");
-                                    root.style.setProperty("--light", "#B2BEBF");
-                                    document.querySelector(".input").style.color = "var(--light)";
-                                    root.style.setProperty("--dark-light", "#3B3936");
-                                    root.style.setProperty("--logo", "#DEE0DC");
-                                    theme.style.filter = "brightness(10) grayscale()";
-                                } else if (themeLS === "light") {
-                                    root.style.setProperty("--dark", "#fff");
-                                    root.style.setProperty("--light-dark", "#000");
-                                    root.style.setProperty("--light", "#000");
-                                    document.querySelector(".input").style.color = "#fff";
-                                    root.style.setProperty("--dark-light", "#dee0dc");
-                                    root.style.setProperty("--logo", "#1d1d31");
-                                    if (window.innerWidth < 750) {
-                                        theme.style.filter = "brightness(0) grayscale(100%)";
-                                    } else {
-                                        theme.style.filter = "brightness(10) grayscale()";
-                                    }
-                                }
-                            }
-                        }
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <div class="actions">
-                            <img src="../icons/like.png">
-                            <img src="../icons/comentActive.png">
-                        </div>
-                        <div class="post-time">2h</div>
-                    </div>
-                </div>
             </section>
         </main>
     </div>
@@ -188,11 +61,11 @@
             </div>
             <form id="newPostForm" class="modal-body">
                 <div class="form-group">
-                    <label for="postContent">O que se passa na sua cabe;a?</label>
-                    <textarea id="postContent" placeholder="Share your thoughts..." required></textarea>
+                    <label for="postContent">O que quer postar hoje?</label>
+                    <textarea id="postContent" placeholder="Compartilhe o que pensa..." required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="postImage">Add a photo (optional)</label>
+                    <label for="postImage">Adicione uma Foto (opcional)</label>
                     <input type="file" id="postImage" accept="image/*" onchange="previewImage(event)">
                     <div id="imagePreview" class="image-preview"></div>
                 </div>

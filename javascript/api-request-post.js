@@ -1,9 +1,10 @@
 import getAccessToken from "./getAccessToken.js";
-import getDataProfile from "./api-request-profile.js";
+import { getDataProfile } from "./api-request-profile.js";
 import closeLoading from "./loading.js";
 const postSection = document.querySelector(".post-section");
 const username = document.querySelector("#username");
 const picsProfile = document.querySelectorAll(".image-profile")
+const userTag = document.querySelector(".profile-info p")
 
 window.addEventListener("load", async () => {
     const token = await getAccessToken();
@@ -34,8 +35,8 @@ async function loadPosts() {
         });
         if (!response.ok) throw new Error("Erro ao buscar posts: " + response.status);
         const posts = await response.json();
+        console.log(posts)
         document.body.style.visibility = "visible"
-        closeLoading()
 
         postSection.innerHTML = "";
 
@@ -50,14 +51,21 @@ async function loadPosts() {
 
             const postHeader = document.createElement("div");
             postHeader.className = "post-header";
+
+            const userTag = post.user_tag;
+            const cleanTag = userTag.replace("#", "");
             postHeader.innerHTML = `
                 <div class="post-profile">
                     <div class="post-profile-image">
-                        <img src=${post.profile_picture} alt="avatar">
+                        <a href="profile.html?tag=${cleanTag}"><img src=${post.profile_picture} alt="avatar"></a>
                     </div>
                     <div class="post-profile-info">
-                        <h3>${post.username}</h3>
-                        <p>@${post.username}</p>
+                        <a href="profile.html?tag=${cleanTag}">
+                            <h3>${post.username}</h3>
+                        </a>
+                        <a href="profile.html?tag=${cleanTag}">
+                            <p>@${post.user_tag}</p>
+                        </a>
                     </div>
                 </div>
             `;
@@ -98,9 +106,14 @@ async function loadPosts() {
 }
 
 function dataRefresh(data) {
+    if (!localStorage.getItem("userPicture")) {
+        localStorage.setItem("userPicture", data.profile_picture)
+    }
     picsProfile[0].src = data.profile_picture
     picsProfile[1].src = data.profile_picture
     username.textContent = data.profile_username
+    userTag.textContent = data.profile_tag
+    closeLoading()
 }
 
 function verifyCode(input) {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/header-feed.css">
     <link rel="stylesheet" href="../css/modal-profile.css">
+    <link rel="stylesheet" href="../css/loading.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+    <div id="loading"><img src="../icons/loading.gif" alt=""></div>
     <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -42,7 +44,7 @@
             <li>Profile</li>
         </ul>
         <div class="account">
-            <img id="pic-header" src="../icons/accountIcon.png">
+            <a href="profile.html"><img id="pic-header" src="../icons/accountIcon.png"></a>
         </div>
     </header>
 
@@ -76,8 +78,6 @@
                             <input type="url" id="website" name="website" class="form-input"
                                 placeholder="https://seusite.com">
                         </div>
-
-                        <!-- Adicionando campo de bio/description -->
                         <div class="form-group">
                             <label class="form-label" for="description">Bio</label>
                             <textarea id="description" name="description" class="form-textarea"
@@ -88,7 +88,6 @@
                         </div>
 
                         <div class="image-upload-group">
-                            <!-- Melhorando preview da foto de perfil -->
                             <div id="profileUpload" class="image-upload">
                                 <div class="image-upload-label">Foto do Perfil</div>
                                 <div class="image-preview" id="profilePreview">
@@ -96,14 +95,15 @@
                                         <div class="image-upload-icon">📷</div>
                                         <div class="image-upload-text">Clique para selecionar</div>
                                     </div>
-                                    <img id="profilePreviewImg" class="preview-img" style="display: none;" alt="Preview">
-                                    <button type="button" class="remove-image" id="removeProfile" style="display: none;">×</button>
+                                    <img id="profilePreviewImg" class="preview-img" style="display: none;"
+                                        alt="Preview">
+                                    <button type="button" class="remove-image" id="removeProfile"
+                                        style="display: none;">×</button>
                                 </div>
                                 <input type="file" id="profilePicture" name="profile_picture" accept="image/*"
                                     style="display: none;">
                             </div>
 
-                            <!-- Melhorando preview da foto de capa -->
                             <div id="bannerUpload" class="image-upload">
                                 <div class="image-upload-label">Foto de Capa</div>
                                 <div class="image-preview banner-preview" id="bannerPreview">
@@ -112,7 +112,8 @@
                                         <div class="image-upload-text">Clique para selecionar</div>
                                     </div>
                                     <img id="bannerPreviewImg" class="preview-img" style="display: none;" alt="Preview">
-                                    <button type="button" class="remove-image" id="removeBanner" style="display: none;">×</button>
+                                    <button type="button" class="remove-image" id="removeBanner"
+                                        style="display: none;">×</button>
                                 </div>
                                 <input type="file" id="bannerPicture" name="banner_picture" accept="image/*"
                                     style="display: none;">

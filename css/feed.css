@@ -5,9 +5,11 @@
   --sidebar-text-color: #bbb;
   --input-background-color: #333;
 }
-.image-profile{
+
+.image-profile {
   object-fit: cover;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,22 +25,6 @@ body {
   visibility: hidden;
   height: 100vh;
   overflow: hidden;
-}
-
-#loading{
-  position: absolute;
-  top: 0;
-  z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--input-background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#loading img{
-  width: 5vw;
-
 }
 
 .container {
@@ -172,7 +158,7 @@ body {
   align-items: center;
 }
 
-.post-profile-image img{
+.post-profile-image img {
   object-fit: cover;
   width: 40px;
   height: 40px;
@@ -185,9 +171,13 @@ body {
   font-size: 1rem;
 }
 
+.post-profile-info a {
+  color: var(--sidebar-text-color);
+  text-decoration: none;
+}
+
 .post-profile-info p {
   font-size: 0.8rem;
-  color: var(--sidebar-text-color);
 }
 
 .post-time {
