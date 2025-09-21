@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aphelion</title>
     <link rel="stylesheet" href="../css/feed.css">
-    <link rel="stylesheet" href="../css/header-feed.css">
     <link rel="stylesheet" href="../css/geral.css">
     <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
 </head>
 
-<body>
-    <div id="loading"><img src="../icons/loading.gif" alt=""></div>
+<body style="visibility: visible; overflow: auto;" cz-shortcut-listen="true">
+    <!-- Adicionado header superior estilo Twitter/X -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <h1>Aphelion</h1>
+            </div>
+            <nav class="top-nav">
+                <a href="#" class="nav-item active">Feed</a>
+                <a href="#" class="nav-item">Notifications</a>
+                <a href="#" class="nav-item">Messages</a>
+                <a href="#" class="nav-item">Profile</a>
+            </nav>
+            <div class="user-avatar">
+                <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp" alt="User">
+            </div>
+        </div>
+    </header>
+    <div id="loading" style="display: none;"><img src="../icons/loading.gif" alt=""></div>
     <div id="fullscreen"><span>x</span><img src="https://imgs.search.brave.com/jhbw8zyLFTgGwiOYsZZyExuuXXbGfqnjtgHiICLwtVo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYyNTg4/MzIuanBn" alt=""></div>
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
     <div class="sidebar-overlay" onclick="closeMobileMenu()"></div>
-    <header class="header">
-        <div class="logo">
-            <img src="../icons/iconAphelion.png">
-            <h1>Aphelion</h1>
-        </div>
-        <div class="account">
-            <a href="profile.html"><img class="image-profile" src="../icons/accountIcon.png"></a>
-        </div>
-    </header>
     <div class="container">
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-content">
                 <div class="profile">
                     <div class="profile-image">
-                        <img style=" width: 45px; height: 45px; border-radius: 100%;" class="image-profile" src="../icons/accountIcon.png">
+                        <img style=" width: 45px; height: 45px; border-radius: 100%;" class="image-profile" src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp">
                     </div>
                     <div class="profile-info">
-                        <h2 id="username">Busaikuna Inc</h2>
-                        <p>@busai#2704</p>
+                        <h2 id="username">Busaikuna</h2>
+                        <p>busaikuna#0000</p>
                     </div>
                 </div>
                 <div class="new-post" onclick="openModal()">
@@ -50,6 +59,225 @@
         </nav>
         <main class="content">
             <section class="post-section">
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=sergio0002"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758317665/profiles/gm0nlwegkmmjffyg5u78.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=sergio0002">
+                                    <h3>Sergio</h3>
+                                </a>
+                                <a href="profile.html?tag=sergio0002">
+                                    <p>@sergio#0002</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>aoba pessoalzim baum</p>
+                        <div class="media-content">
+                            <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758432715/posts/xw0xzedsvbog18absl3t.png">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">Hoje</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=busaikuna0000"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <h3>Busaikuna</h3>
+                                </a>
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <p>@busaikuna#0000</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>checkando mais codes</p>
+                        <div class="media-content">
+                            <pre><code>const codeHTML = verifyCode(post.description);
+if (codeHTML) {
+    postContent.innerHTML = codeHTML;
+} else {
+    const p = document.createElement("p");
+    p.textContent = post.description || post.content;
+    postContent.appendChild(p);
+}
+</code></pre>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">20/09/2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=busaikuna0000"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <h3>Busaikuna</h3>
+                                </a>
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <p>@busaikuna#0000</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>chckando o code</p>
+                        <div class="media-content">
+                            <pre><code>const avatarProfile = document.querySelector("#img-profile")
+const bannerProfile = document.querySelector("#cover-img")</code></pre>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">20/09/2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=sergio0002"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758317665/profiles/gm0nlwegkmmjffyg5u78.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=sergio0002">
+                                    <h3>Sergio</h3>
+                                </a>
+                                <a href="profile.html?tag=sergio0002">
+                                    <p>@sergio#0002</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>nossa eu amo o sergio</p>
+                        <div class="media-content">
+                            <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758317695/posts/cuvpk0ph49cstil37mjm.webp">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">19/09/2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=sammy0001"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758211884/profiles/nvvzhewlvn6yepm0s0cm.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=sammy0001">
+                                    <h3>sammy</h3>
+                                </a>
+                                <a href="profile.html?tag=sammy0001">
+                                    <p>@sammy#0001</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>hmm sei nao sabe</p>
+                        <div class="media-content">
+                            <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758211843/posts/nttdkmlktrwgjle7oow1.jpg">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">18/09/2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=busaikuna0000"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <h3>Busaikuna</h3>
+                                </a>
+                                <a href="profile.html?tag=busaikuna0000">
+                                    <p>@busaikuna#0000</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>post che guevara aii</p>
+                        <div class="media-content">
+                            <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140534/posts/cwjiwxojig26if15iepq.webp">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">17/09/2025</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <div class="post-profile-image">
+                                <a href="profile.html?tag=sammy0001"><img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758211884/profiles/nvvzhewlvn6yepm0s0cm.webp" alt="avatar"></a>
+                            </div>
+                            <div class="post-profile-info">
+                                <a href="profile.html?tag=sammy0001">
+                                    <h3>sammy</h3>
+                                </a>
+                                <a href="profile.html?tag=sammy0001">
+                                    <p>@sammy#0001</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>posta ai ne</p>
+                        <div class="media-content">
+                            <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140401/posts/kxyvokzs3fodj3ucdcr2.jpg">
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="actions">
+                            <img src="../icons/like.png" alt="like">
+                            <img src="../icons/comentActive.png" alt="comment">
+                        </div>
+                        <div class="post-time">17/09/2025</div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -58,12 +286,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Create New Post</h2>
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeModal()">×</span>
             </div>
             <form id="newPostForm" class="modal-body">
                 <div class="form-group">
                     <label for="postContent">O que quer postar hoje?</label>
-                    <textarea id="postContent" placeholder="Compartilhe o que pensa..." required></textarea>
+                    <textarea id="postContent" placeholder="Compartilhe o que pensa..." required=""></textarea>
                 </div>
                 <div class="form-group">
                     <label for="postImage">Adicione uma Foto (opcional)</label>
@@ -81,6 +309,42 @@
     <script type="module" src="../javascript/api-request-post.js"></script>
     <script src="../javascript/modal-post.js"></script>
     <script src="../javascript/create-post.js"></script>
+    <!-- Code injected by live-server -->
+    <script>
+		if ('WebSocket' in window) {
+			(function () {
+				function refreshCSS() {
+					var sheets = [].slice.call(document.getElementsByTagName("link"));
+					var head = document.getElementsByTagName("head")[0];
+					for (var i = 0; i < sheets.length; ++i) {
+						var elem = sheets[i];
+						var parent = elem.parentElement || head;
+						parent.removeChild(elem);
+						var rel = elem.rel;
+						if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+							var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+							elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+						}
+						parent.appendChild(elem);
+					}
+				}
+				var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+				var address = protocol + window.location.host + window.location.pathname + '/ws';
+				var socket = new WebSocket(address);
+				socket.onmessage = function (msg) {
+					if (msg.data == 'reload') window.location.reload();
+					else if (msg.data == 'refreshcss') refreshCSS();
+				};
+				if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+					console.log('Live reload enabled.');
+					sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+				}
+			})();
+		}
+		else {
+			console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+		}
+		// ]]>
+    </script>
 </body>
-
 </html>
