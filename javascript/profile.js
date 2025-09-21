@@ -6,10 +6,11 @@ const siteInf = document.querySelector("#siteInf")
 const createdsInf = document.querySelector("#createdInf")
 const metaLink = document.querySelector(".meta-link")
 const description = document.querySelector(".profile-bio p")
+const buttonModal = document.querySelector("#openModal")
 
 import getAccessToken from "./getAccessToken.js";
 import { getDataProfile, getUserProfile } from "./api-request-profile.js";
-import closeLoading from "./loading.js"
+import {closeLoading} from "./geral.js"
 
 let anotherUser = false
 
@@ -41,6 +42,7 @@ window.addEventListener("load", async () => {
 function dataRefresh(data) {
     if (anotherUser) {
         picHeader.src = localStorage.getItem("userPicture")
+        buttonModal.remove()
     } else {
         picHeader.src = data.profile_picture
     }

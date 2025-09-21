@@ -205,6 +205,7 @@ body {
 }
 
 .media-content img {
+  cursor: pointer;
   background-color: #1e1e1e;
   border: 1px solid #2d2d2d;
   border-radius: 10px;

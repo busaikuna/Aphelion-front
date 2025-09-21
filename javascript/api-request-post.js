@@ -1,6 +1,6 @@
 import getAccessToken from "./getAccessToken.js";
 import { getDataProfile } from "./api-request-profile.js";
-import closeLoading from "./loading.js";
+import {closeLoading, fullscreen} from "./geral.js";
 const postSection = document.querySelector(".post-section");
 const username = document.querySelector("#username");
 const picsProfile = document.querySelectorAll(".image-profile")
@@ -113,6 +113,7 @@ function dataRefresh(data) {
     picsProfile[1].src = data.profile_picture
     username.textContent = data.profile_username
     userTag.textContent = data.profile_tag
+    fullscreen()
     closeLoading()
 }
 
