@@ -31,6 +31,7 @@ loginBtn.addEventListener("click", async (e) => {
         if (data.accessToken) {
             sessionStorage.setItem("accessToken", data.accessToken)
             localStorage.removeItem("userPicture")
+            localStorage.removeItem("myUsertag")
             window.location.href = "./feed.html";
         } else {
             errorMsg.textContent = data.message || "Login falhou, tente novamente.";

@@ -4,7 +4,7 @@
   --bg-hover: #1c1f23;
   --text-primary: #e7e9ea;
   --text-secondary: #71767b;
-  --accent-blue: #1d9bf0;
+  --accent-purple: #a855f7;
   --border-color: #2f3336;
 }
 
@@ -26,7 +26,22 @@ body {
   overflow: hidden;
 }
 
-/* Header superior estilo Twitter/X */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo h1 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
 .top-header {
   position: fixed;
   top: 0;
@@ -86,7 +101,7 @@ body {
 }
 
 .nav-item.active {
-  border-bottom-color: var(--accent-blue);
+  border-bottom-color: var(--accent-purple);
 }
 
 .user-avatar {
@@ -108,8 +123,10 @@ body {
 }
 
 .sidebar {
+  position: fixed;
   border-right: 2px solid var(--border-color);
   width: 250px;
+  height: 199vh;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -173,6 +190,7 @@ body {
 }
 
 .profile-image img {
+  object-fit: cover;
   width: 100%;
 }
 
@@ -201,7 +219,7 @@ body {
 
 .sidebar-menu li.active {
   color: var(--text-primary);
-  border-bottom-color: var(--accent-blue);
+  border-bottom-color: var(--accent-purple);
 }
 
 .content {
@@ -216,7 +234,8 @@ body {
   align-items: left;
   flex-grow: 1;
   overflow-y: auto;
-  padding: 20px 100px;
+  padding: 20px 0;
+  margin-left: 265px;
 }
 
 .post {
@@ -258,7 +277,7 @@ body {
 }
 
 .post-profile-info a {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
@@ -316,7 +335,6 @@ body {
   white-space: pre;
 }
 
-/* barra de rolagem customizada */
 .media-content pre::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -331,7 +349,6 @@ body {
   background-color: #666;
 }
 
-/* Modal styles for new post */
 .modal {
   display: none;
   position: fixed;
@@ -547,7 +564,6 @@ body {
   z-index: 999;
 }
 
-/* Seção de perfil destacada */
 .profile-banner {
   margin-top: 53px;
   border-bottom: 1px solid var(--border-color);
@@ -659,7 +675,6 @@ body {
   font-size: 15px;
 }
 
-/* Container principal e posts */
 .main-container {
   max-width: 600px;
   margin: 0 auto;
@@ -686,7 +701,7 @@ body {
 }
 
 .post-link {
-  color: var(--accent-blue);
+  color: var(--accent-purple);
   text-decoration: none;
 }
 
@@ -694,7 +709,6 @@ body {
   text-decoration: underline;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .logo img {
     display: none;
@@ -746,6 +760,7 @@ body {
   }
 
   .post-section {
+    margin: 0;
     padding: 20px 15px;
   }
 

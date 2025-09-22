@@ -68,8 +68,6 @@
   border-radius: 50%;
   cursor: pointer;
 }
-
-/* Added responsive header styles */
 @media (max-width: 768px) {
   .header {
     padding: 0 60px 0 20px;

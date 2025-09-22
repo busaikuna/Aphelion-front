@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Aphelion</title>
     <link rel="stylesheet" href="../css/profile.css">
-    <link rel="stylesheet" href="../css/header-feed.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/modal-profile.css">
     <link rel="stylesheet" href="../css/geral.css">
     <link rel="shortcut icon" href="../icons/iconAphelion.png" type="image/x-icon">
@@ -27,25 +27,24 @@
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <header class="header">
-        <div class="logo">
-            <img src="../icons/iconAphelion.png">
-            <h1>Aphelion</h1>
-        </div>
-        <ul>
-            <a href="feed.html">
-                <li>Feed</li>
-            </a>
-            <a href="notifications.html">
-                <li>Notifications</li>
-            </a>
-            <a href="chat.html">
-                <li>Messages</li>
-            </a>
-            <li>Profile</li>
-        </ul>
-        <div class="account">
-            <a href="profile.html"><img id="pic-header" src="../icons/accountIcon.png"></a>
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../icons/iconAphelion.png">
+                <h1>Aphelion</h1>
+            </div>
+            <nav class="top-nav">
+                <a href="feed.html" class="nav-item">Feed</a>
+                <a href="notifications.html" class="nav-item">Notifications</a>
+                <a href="chat.html" class="nav-item">Messages</a>
+                <a href="profile.html" class="nav-item active">Profile</a>
+            </nav>
+            <div class="user-avatar">
+                <a href="profile.html">
+                    <img src="https://res.cloudinary.com/dl3arbevw/image/upload/v1758140491/profiles/n5xus5ukqp0ik15rx4ut.webp"
+                        alt="User">
+                </a>
+            </div>
         </div>
     </header>
 
@@ -149,7 +148,7 @@
 
                 <div class="profile-actions">
                     <button class="demo-btn btn-secondary" id="openModal">Editar Perfil</button>
-                    <button class="btn-primary">Seguir</button>
+                    <button id="follow" class="btn-primary">Seguir</button>
                     <button class="btn-icon-only" aria-label="Mais opções">
                         <img src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3236901/more-icon-md.png"
                             alt="More" class="more-icon">
@@ -190,174 +189,22 @@
 
             <div class="profile-stats">
                 <div class="stat">
-                    <span class="stat-number">1,234</span>
+                    <span id="numberPosts" class="stat-number">1,234</span>
                     <span class="stat-label">Posts</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">5,678</span>
+                    <span id="following" class="stat-number">5,678</span>
                     <span class="stat-label">Seguindo</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">12.3K</span>
+                    <span id="followers" class="stat-number">12.3K</span>
                     <span class="stat-label">Seguidores</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">890</span>
-                    <span class="stat-label">Curtidas</span>
                 </div>
             </div>
         </div>
         <div class="profile-tabs">
             <div class="tab-content active" id="posts">
-                <div class="posts-container">
-                    <article class="post">
-                        <div class="post-header">
-                            <div class="post-author">
-                                <div class="author-avatar">
-                                    <img src="/placeholder.svg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <h3>Busaikuna Inc</h3>
-                                    <p>@busai#2704 · 3h</p>
-                                </div>
-                            </div>
-                            <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
-                            </button>
-                        </div>
-
-                        <div class="post-content">
-                            <p>Just shipped a new feature that improves performance by 40%! The team has been
-                                working hard on optimizing our algorithms and it's finally paying off. Excited to
-                                see how our users respond to these improvements.</p>
-                        </div>
-
-                        <div class="post-actions">
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
-                                <span>124</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
-                                <span>23</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Like" class="action-icon">
-                                <span>456</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Share" class="action-icon">
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="post">
-                        <div class="post-header">
-                            <div class="post-author">
-                                <div class="author-avatar">
-                                    <img src="/placeholder.svg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <h3>Busaikuna Inc</h3>
-                                    <p>@busai#2704 · 1d</p>
-                                </div>
-                            </div>
-                            <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
-                            </button>
-                        </div>
-
-                        <div class="post-content">
-                            <p>Working on some exciting new projects! Can't share all the details yet, but let's
-                                just say the future of web development is looking bright. Stay tuned for some major
-                                announcements coming soon.</p>
-
-                            <div class="post-media">
-                                <img src="/placeholder.svg" alt="Project preview">
-                            </div>
-                        </div>
-
-                        <div class="post-actions">
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
-                                <span>89</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
-                                <span>12</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Like" class="action-icon">
-                                <span>234</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Share" class="action-icon">
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="post">
-                        <div class="post-header">
-                            <div class="post-author">
-                                <div class="author-avatar">
-                                    <img src="/placeholder.svg" alt="Author">
-                                </div>
-                                <div class="author-info">
-                                    <h3>Busaikuna Inc</h3>
-                                    <p>@busai#2704 · 2d</p>
-                                </div>
-                            </div>
-                            <button class="post-menu-btn" aria-label="Opções do post">
-                                <img src="/placeholder.svg" alt="Menu" class="menu-icon">
-                            </button>
-                        </div>
-
-                        <div class="post-content">
-                            <p>Here's a snippet of the new authentication system we've been building. Clean, secure,
-                                and efficient!</p>
-
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span class="code-language">JavaScript</span>
-                                    <button class="copy-btn" aria-label="Copiar código">
-                                        <img src="/placeholder.svg" alt="Copy" class="copy-icon">
-                                    </button>
-                                </div>
-                                <pre><code>const authenticateUser = async (token) => {
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
-    
-    if (!user || !user.isActive) {
-      throw new Error('Invalid user');
-    }
-    
-    return { success: true, user };
-  } catch (error) {
-    return { success: false, error: error.message };
-  }
-};</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="post-actions">
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Reply" class="action-icon">
-                                <span>156</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Repost" class="action-icon">
-                                <span>34</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Like" class="action-icon">
-                                <span>678</span>
-                            </button>
-                            <button class="action-btn">
-                                <img src="/placeholder.svg" alt="Share" class="action-icon">
-                            </button>
-                        </div>
-                    </article>
+                <div class="post-section">
                 </div>
             </div>
 
@@ -397,6 +244,7 @@
     </main>
     <script type="module" src="../javascript/modal-profile.js"></script>
     <script type="module" src="../javascript/profile.js"></script>
+    <script type="module" src="../javascript/follows.js"></script>
 </body>
 
 </html>

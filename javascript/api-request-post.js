@@ -3,7 +3,8 @@ import { getDataProfile } from "./api-request-profile.js";
 import {closeLoading, fullscreen} from "./geral.js";
 const postSection = document.querySelector(".post-section");
 const username = document.querySelector("#username");
-const picsProfile = document.querySelectorAll(".image-profile")
+const picsProfile = document.querySelector(".image-profile")
+const picsProfileHeader = document.querySelector(".user-avatar img")
 const userTag = document.querySelector(".profile-info p")
 
 window.addEventListener("load", async () => {
@@ -109,8 +110,11 @@ function dataRefresh(data) {
     if (!localStorage.getItem("userPicture")) {
         localStorage.setItem("userPicture", data.profile_picture)
     }
-    picsProfile[0].src = data.profile_picture
-    picsProfile[1].src = data.profile_picture
+    if(!localStorage.getItem("myUsertag")){
+        localStorage.setItem("myUsertag", data.profile_tag)
+    }
+    picsProfileHeader.src = data.profile_picture
+    picsProfile.src = data.profile_picture
     username.textContent = data.profile_username
     userTag.textContent = data.profile_tag
     fullscreen()
